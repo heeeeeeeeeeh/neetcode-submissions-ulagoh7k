@@ -1,19 +1,16 @@
 class Solution:
     def trap(self, height: List[int]) -> int:
-        left, right = 0, len(height)-1
-        maxLeft = maxRight = maxSum = 0
+        l, r = 0, len(height)-1
+        res = 0
 
-        while left < right:
-            if height[left] < height[right]:
-                if height[left] > maxLeft:
-                    maxLeft = height[left]
-                else: 
-                    maxSum += maxLeft - height[left]
-                left += 1
+        maxL, maxR = height[l], height[r]
+        while l < r:
+            if height[l] < height[r]:
+                l +=1 
+                maxL = max(maxL, height[l])
+                res += maxL - height[l]
             else:
-                if height[right] > maxRight:
-                    maxRight = height[right]
-                else:
-                    maxSum += maxRight - height[right]
-                right -= 1
-        return maxSum 
+                r -= 1
+                maxR = max(maxR, height[r])
+                res += maxR - height[r]
+        return res
