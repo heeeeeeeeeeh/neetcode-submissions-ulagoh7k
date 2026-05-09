@@ -1,18 +1,13 @@
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        charSet = set(s)
-        maxL = 0
+        res = maxf = l = 0
+        count = defaultdict(int)
+        for r in range(len(s)):
+            count[s[r]] += 1
+            maxf = max(maxf,count[s[r]])
 
-        for c in charSet:
-            l, count = 0, 0
-            for r in range(len(s)):
-                if s[r] == c:
-                    count += 1
-
-                while r-l+1-count > k:
-                    if s[l] == c:
-                        count -= 1
-                    l += 1
-                
-                maxL = max(maxL, r-l+1)
-        return maxL
+            while r-l+1-maxf > k:
+                count[s[l]] -= 1
+                l += 1
+            res = max(res, r-l+1)
+        return res
