@@ -1,24 +1,17 @@
 class Solution:
-    #Understand: check if string is a palidrome
-    #Plan:
-    #Init left to first elem and right pointer to last elem
-    # loop while left pointer not greater then right pointer
-        # skip nonlphanumeric characters 
-        # if left pointer and right pointer are not equal 
-            # return false
-    # return True
     def isPalindrome(self, s: str) -> bool:
-        left = 0
-        right = len(s)-1
-        while left < right:
-            if not s[left].isalnum():
-                left += 1
+        l, r = 0, len(s)-1
+
+        while l <= r:
+            if not s[l].isalnum():
+                l += 1
                 continue
-            if not s[right].isalnum():
-                right -= 1
+            elif not s[r].isalnum():
+                r -= 1
                 continue
-            if s[left].lower() != s[right].lower():
+            
+            if not s[l].lower() == s[r].lower():
                 return False
-            left += 1
-            right -= 1
+            l += 1
+            r -= 1
         return True
