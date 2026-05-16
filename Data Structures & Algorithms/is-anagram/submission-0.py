@@ -1,16 +1,10 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        if len(s) != len(t):
+        if len(t) != len(s):
             return False
-        sHash = {}
-        tHash = {}
+        sCount, tCount = defaultdict(int), defaultdict(int)
+
         for i in range(len(s)):
-            if s[i] in sHash:
-                sHash[s[i]] += 1
-            else:
-                sHash[s[i]] = 1
-            if t[i] in tHash:
-                tHash[t[i]] += 1
-            else:
-                tHash[t[i]] = 1
-        return sHash == tHash
+            sCount[s[i]] += 1
+            tCount[t[i]] += 1
+        return  sCount == tCount
