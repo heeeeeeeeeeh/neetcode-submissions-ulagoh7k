@@ -6,13 +6,12 @@ class Solution:
         while l <= r:
             k = l + (r-l)//2
             time = 0
-
             for pile in piles:
                 time += math.ceil(pile/k)
-
+            
             if time <= h:
-                res = k
                 r = k - 1
+                res = k
             else:
                 l = k + 1
         return res
