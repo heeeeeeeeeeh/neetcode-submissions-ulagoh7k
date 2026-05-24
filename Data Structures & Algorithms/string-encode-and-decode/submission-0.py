@@ -3,15 +3,14 @@ class Solution:
     def encode(self, strs: List[str]) -> str:
         res = ""
         for s in strs:
-            res += str(len(s)) + "@" + s
+            res += str(len(s)) + "#" + s
         return res
 
     def decode(self, s: str) -> List[str]:
-        i=j=0
+        i = j = 0
         res = []
-
         while i < len(s):
-            while s[j] != "@":
+            while s[j] != "#":
                 j += 1
             length = int(s[i:j])
             i = j + 1
