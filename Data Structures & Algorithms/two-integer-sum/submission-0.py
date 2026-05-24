@@ -3,7 +3,8 @@ class Solution:
         diffs = {}
 
         for i, num in enumerate(nums):
-            diff = target - num
+            diff = target-num
             if diff in diffs:
                 return [diffs[diff], i]
             diffs[num] = i
+        
