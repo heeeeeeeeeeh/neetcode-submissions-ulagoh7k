@@ -9,12 +9,12 @@ class Solution:
         dummy = prevGroup = ListNode(0, head)
 
         while True:
-            kth = getKth(prevGroup, k)
+            kth = findKthNode(prevGroup, k)
             if not kth:
                 break
             
-            nextGroup = kth.next
-            prev, cur = kth.next, prevGroup.next
+            nextGroup, prev = kth.next, kth.next
+            cur = prevGroup.next
             while cur != nextGroup:
                 tmp = cur.next
                 cur.next = prev
@@ -25,8 +25,9 @@ class Solution:
             prevGroup.next = kth
             prevGroup = tmp
         return dummy.next
-def getKth(cur, k):
-    while cur and k > 0:
-        cur = cur.next
-        k -= 1
-    return cur
+def findKthNode(node, k):
+    for _ in range(k):
+        if not node:
+            break
+        node = node.next
+    return node
