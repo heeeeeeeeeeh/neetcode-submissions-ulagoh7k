@@ -13,3 +13,4 @@ class Solution:
             slow2 = nums[slow2]
             if slow == slow2:
                 return slow
+        
