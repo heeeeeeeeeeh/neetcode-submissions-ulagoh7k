@@ -3,10 +3,11 @@ class Solution:
         l, r = 0, len(numbers)-1
 
         while l < r:
-            s = numbers[l] + numbers[r]
-            if s == target:
-                return [l + 1, r + 1]
-            elif s > target:
+            num = numbers[l] + numbers[r]
+            if num == target:
+                return [l+ 1, r+ 1]
+            elif num > target:
                 r -= 1
             else:
                 l += 1
+        
