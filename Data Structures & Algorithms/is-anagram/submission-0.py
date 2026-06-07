@@ -2,8 +2,8 @@ class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
             return False
-        tCount, sCount = [0]*26, [0]*26
-
+        sCount = [0]*26
+        tCount = [0]*26
         for i in range(len(s)):
             sCount[ord(s[i]) - ord('a')] += 1
             tCount[ord(t[i]) - ord('a')] += 1
