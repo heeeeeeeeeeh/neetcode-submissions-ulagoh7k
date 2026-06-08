@@ -2,19 +2,19 @@ class Solution:
     def minWindow(self, s: str, t: str) -> str:
         if len(t) > len(s):
             return ""
-        sCount, tCount = defaultdict(int), defaultdict(int)
-        res, resLen = [-1, -1], float("inf")
+        countT = defaultdict(int)
+        countS = defaultdict(int)
+        res, resLen = [-1,-1], float("inf")
 
         for c in t:
-            tCount[c] += 1
-        need, have = len(tCount), 0
+            countT[c] += 1
 
+        need, have = len(countT), 0
         l = 0
         for r in range(len(s)):
             c = s[r]
-            sCount[c] += 1
-
-            if c in tCount and sCount[c] == tCount[c]:
+            countS[c] += 1
+            if c in countT and countS[c] == countT[c]:
                 have += 1
             
             while have == need:
@@ -22,9 +22,8 @@ class Solution:
                     resLen = r-l+1
                     res = [l, r]
                 c = s[l]
-
-                sCount[c] -= 1
-                if c in tCount and sCount[c] < tCount[c]:
+                countS[c] -= 1
+                if c in countT and countS[c] < countT[c]:
                     have -= 1
                 l += 1
         l, r = res
