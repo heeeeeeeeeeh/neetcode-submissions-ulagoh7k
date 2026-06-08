@@ -5,8 +5,8 @@ class Solution:
 
         while l <= r:
             mid = l + (r-l)//2
-            row = mid // COLS
-            col = mid % COLS
+            row = mid//COLS
+            col = mid%COLS
 
             if matrix[row][col] == target:
                 return True
