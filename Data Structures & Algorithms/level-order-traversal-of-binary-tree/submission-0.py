@@ -7,19 +7,17 @@
 
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        if not root:
-            return []
+        def dfs(root, depth):
+            nonlocal res
+            if not root:
+                return None
+            if len(res) == depth:
+                res.append([])
+            
+            res[depth].append(root.val)
+            dfs(root.left, depth + 1)
+            dfs(root.right, depth + 1)
         res = []
-        q = deque()
-        q.append(root)
-        while q:
-            res.append([])
-            for _ in range(len(q)):
-                node = q.popleft()
-                res[-1].append(node.val)
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
-        print(res)
+        dfs(root, 0)
         return res
+        
