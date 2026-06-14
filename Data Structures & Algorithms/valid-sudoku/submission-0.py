@@ -11,7 +11,7 @@ class Solution:
                     continue
                 if (num in rows[r] or
                     num in cols[c] or
-                    num in boxes[(r // 3, c // 3)]):
+                    num in boxes[(r//3, c//3)]):
                     return False
                 rows[r].add(num)
                 cols[c].add(num)
