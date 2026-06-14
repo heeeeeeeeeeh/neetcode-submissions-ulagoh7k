@@ -9,7 +9,7 @@ class Solution:
     def decode(self, s: str) -> List[str]:
         i = j = 0
         res = []
-        while i < len(s):
+        while j < len(s):
             while s[j] != "#":
                 j += 1
             length = int(s[i:j])
