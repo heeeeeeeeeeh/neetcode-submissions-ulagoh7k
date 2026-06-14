@@ -3,10 +3,9 @@ class Solution:
         numSet = set(nums)
         maxL = 0
         for num in nums:
-            if num-1 in nums:
-                continue
-            length = 1
-            while num+length in numSet:
-                length += 1
-            maxL = max(maxL, length)
+            if not num-1 in numSet:
+                length = 1
+                while num + length in numSet:
+                    length += 1
+                maxL = max(maxL, length)
         return maxL
