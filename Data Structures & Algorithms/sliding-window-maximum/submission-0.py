@@ -4,12 +4,14 @@ class Solution:
         l = 0
         res = []
         for r in range(len(nums)):
-            while q and nums[q[-1]] < nums[r]:
+            while q and nums[r] > nums[q[-1]]:
                 q.pop()
             q.append(r)
+            
             if l > q[0]:
                 q.popleft()
-            if r-l+1 >= k:
+            
+            if r + 1 >= k:
                 res.append(nums[q[0]])
                 l += 1
         return res
