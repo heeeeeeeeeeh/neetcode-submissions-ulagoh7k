@@ -2,7 +2,6 @@ class TimeMap:
 
     def __init__(self):
         self.map = defaultdict(list)
-        
 
     def set(self, key: str, value: str, timestamp: int) -> None:
         self.map[key].append((value, timestamp))
@@ -11,14 +10,15 @@ class TimeMap:
     def get(self, key: str, timestamp: int) -> str:
         res = ""
         if key in self.map:
-            l, r = 0, len(self.map[key])-1
+            arr = self.map[key]
+            l, r = 0, len(arr)-1
             while l <= r:
                 mid = l + (r-l)//2
-                if self.map[key][mid][1] == timestamp:
-                    return self.map[key][mid][0]
-                elif self.map[key][mid][1] > timestamp:
+                if arr[mid][1] == timestamp:
+                    return arr[mid][0]
+                if arr[mid][1] > timestamp:
                     r = mid - 1
                 else:
-                    res = self.map[key][mid][0]
+                    res = arr[mid][0]
                     l = mid + 1
         return res
