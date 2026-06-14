@@ -8,7 +8,7 @@ class Solution:
                 b = stack.pop()
                 stack.append(stack.pop() - b)
             elif c == "*":
-                stack.append(stack.pop() * stack.pop())
+                stack.append(stack.pop()*stack.pop())
             elif c == "/":
                 b = stack.pop()
                 stack.append(int(stack.pop() / b))
