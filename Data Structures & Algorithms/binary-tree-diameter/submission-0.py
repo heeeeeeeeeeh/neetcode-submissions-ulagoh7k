@@ -12,11 +12,11 @@ class Solution:
             if not root:
                 return 0
             
-            left = dfs(root.left)
-            right = dfs(root.right)
+            lH = dfs(root.left)
+            rH = dfs(root.right)
 
-            res = max(res, left + right)
-            return 1 + max(left, right)
-        res  = 0
+            res = max(res, lH + rH)
+            return 1 + max(lH, rH)
+        res = 0
         dfs(root)
         return res
