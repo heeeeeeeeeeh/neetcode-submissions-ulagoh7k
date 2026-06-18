@@ -9,14 +9,13 @@ class Node:
 
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
-        old = defaultdict(lambda : Node(0))
-        old[None] = None
+        new = defaultdict(lambda : Node(0))
+        new[None] = None
+
         cur = head
-        newHead = newNode = Node(0)
         while cur:
-            newNode.next = old[cur]
-            newNode = newNode.next
-            newNode.val = cur.val
-            newNode.random = old[cur.random]
+            new[cur].val = cur.val
+            new[cur].random = new[cur.random]
+            new[cur].next = new[cur.next]
             cur = cur.next
-        return newHead.next
+        return new[head]
