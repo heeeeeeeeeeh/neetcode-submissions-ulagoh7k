@@ -7,10 +7,11 @@
 
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        def valid(left, node, right):
+        def dfs(left, node, right):
             if not node:
                 return True
-            if not (left < node.val < right):
-                return False
-            return valid(left, node.left, node.val) and valid(node.val, node.right, right)
-        return valid(float("-inf"), root, float("inf"))
+            if left < node.val < right:
+                return (dfs(left, node.left, node.val) and
+                        dfs(node.val, node.right, right))
+            return False
+        return dfs(float("-inf"), root, float("inf"))
