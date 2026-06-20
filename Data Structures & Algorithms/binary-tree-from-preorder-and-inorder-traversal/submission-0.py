@@ -7,8 +7,9 @@
 
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
-        head = cur = TreeNode(None)
+        head = cur = TreeNode()
         i, j, n = 0, 0, len(preorder)
+
         while i < n and j < n:
             cur.right = TreeNode(preorder[i], right = cur.right)
             cur = cur.right
@@ -18,7 +19,7 @@ class Solution:
                 cur = cur.left
                 i += 1
             j += 1
-            while cur.right and j < n and cur.right.val == inorder[j]:
+            while j < n and cur.right and cur.right.val == inorder[j]:
                 cur.right, cur = None, cur.right
                 j += 1
         return head.right
