@@ -18,11 +18,11 @@ class Solution:
                 prev = cur.left
                 while prev.right and prev.right != cur:
                     prev = prev.right
-                
                 if not prev.right:
                     prev.right = cur
                     cur = cur.left
                 else:
+                    prev.right = None
                     k -= 1
                     if k == 0:
                         return cur.val
