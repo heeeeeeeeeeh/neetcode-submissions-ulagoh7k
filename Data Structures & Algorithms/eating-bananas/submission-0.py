@@ -3,15 +3,13 @@ class Solution:
         l, r = 1, max(piles)
         minS = r
         while l <= r:
-            mid = l + (r-l)//2 
-
+            k = l + (r-l)//2
             time = 0
             for pile in piles:
-                time += math.ceil(pile/mid)
-            
+                time += math.ceil(pile/k)
             if time <= h:
-                minS = mid
-                r = mid - 1
+                r = k - 1
+                minS = k
             else:
-                l = mid + 1
+                l = k + 1
         return minS
