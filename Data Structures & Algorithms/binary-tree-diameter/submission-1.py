@@ -14,7 +14,6 @@ class Solution:
             
             lH = dfs(root.left)
             rH = dfs(root.right)
-
             res = max(res, lH + rH)
             return 1 + max(lH, rH)
         res = 0
