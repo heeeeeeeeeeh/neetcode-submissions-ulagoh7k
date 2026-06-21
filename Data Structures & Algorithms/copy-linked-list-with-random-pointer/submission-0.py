@@ -11,7 +11,6 @@ class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         new = defaultdict(lambda : Node(0))
         new[None] = None
-
         cur = head
         while cur:
             new[cur].val = cur.val
