@@ -1,11 +1,11 @@
 class Solution:
     def isValid(self, s: str) -> bool:
+        stack = []
         close = {
             ')': '(',
             ']': '[',
-            '}': '{',
+            '}': '{'
         }
-        stack = []
         for c in s:
             if c in close:
                 if not stack or close[c] != stack[-1]:
