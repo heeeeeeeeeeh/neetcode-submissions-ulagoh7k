@@ -8,9 +8,9 @@
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
         def dfs(root, depth):
-            nonlocal res
             if not root:
                 return
+            nonlocal res
             if len(res) == depth:
                 res.append(root.val)
             dfs(root.right, depth + 1)
