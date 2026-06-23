@@ -11,9 +11,9 @@ class Codec:
     def serialize(self, root: Optional[TreeNode]) -> str:
         if not root:
             return "#."
-        return (str(root.val) + "." +
-                self.serialize(root.left) + 
-                self.serialize(root.right))
+        return (str(root.val) + "."
+                + self.serialize(root.left)
+                + self.serialize(root.right))
         
     # Decodes your encoded data to tree.
     def deserialize(self, data: str) -> Optional[TreeNode]:
