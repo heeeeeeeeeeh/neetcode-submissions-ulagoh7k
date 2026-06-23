@@ -10,14 +10,13 @@ class Codec:
     # Encodes a tree to a single string.
     def serialize(self, root: Optional[TreeNode]) -> str:
         if not root:
-            return "#."
+            return "#"
         return (str(root.val) + "."
-                + self.serialize(root.left)
+                + self.serialize(root.left) + "."
                 + self.serialize(root.right))
         
     # Decodes your encoded data to tree.
     def deserialize(self, data: str) -> Optional[TreeNode]:
-        data = data.rstrip(".")
         vals = data.split(".")
         i = 0
         def dfs():
