@@ -44,12 +44,13 @@ class Heap:
     def __len__(self):
         return len(self.nums)
 
+
 class Solution:
     def lastStoneWeight(self, stones: List[int]) -> int:
         stones = [-s for s in stones]
         heap = Heap(stones)
         while len(heap) > 1:
             first, second = heap.pop(), heap.pop()
-            if second > first:
+            if first < second:
                 heap.insert(first-second)
         return -stones[0] if len(heap) > 0 else 0
