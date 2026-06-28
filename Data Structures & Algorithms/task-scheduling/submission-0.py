@@ -51,14 +51,15 @@ class Solution:
         heap = Heap(count)
         q = deque()
         time = 0
-        while count or q:
+
+        while q or heap:
             time += 1
             if not count:
                 time = q[0][1]
             else:
                 cnt = 1 + heap.pop()
                 if cnt:
-                    q.append((cnt, n + time))
+                    q.append((cnt, time + n))
             if q and q[0][1] == time:
                 heap.insert(q.popleft()[0])
         return time
