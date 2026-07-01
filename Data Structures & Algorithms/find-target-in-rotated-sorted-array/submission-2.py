@@ -6,13 +6,13 @@ class Solution:
             mid = l + (r-l)//2
             if nums[mid] == target:
                 return mid
-            if nums[l] <= nums[mid]:
+            if nums[mid] >= nums[r]:
                 if target > nums[mid] or target < nums[l]:
                     l = mid + 1
                 else:
                     r = mid - 1
             else:
-                if nums[mid] > target or nums[r] < target:
+                if target < nums[mid] or target > nums[r]:
                     r = mid - 1
                 else:
                     l = mid + 1
