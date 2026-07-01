@@ -4,7 +4,8 @@ class Solution:
 
         while l < r:
             mid = l + (r-l)//2
-            if nums[mid] > nums[r]:
+
+            if nums[mid] >= nums[r]:
                 l = mid + 1
             else:
                 r = mid
