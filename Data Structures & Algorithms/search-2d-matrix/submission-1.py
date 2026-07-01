@@ -5,12 +5,12 @@ class Solution:
 
         while l <= r:
             mid = l + (r-l)//2
-            row, col = divmod(mid, COLS)
+            row, col = mid//COLS, mid%COLS
 
             if matrix[row][col] == target:
                 return True
-            elif matrix[row][col] < target:
-                l += 1
+            elif matrix[row][col] > target:
+                r = mid - 1
             else:
-                r -= 1
+                l = mid + 1
         return False
