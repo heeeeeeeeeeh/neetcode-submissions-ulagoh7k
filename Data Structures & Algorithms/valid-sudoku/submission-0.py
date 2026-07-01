@@ -4,16 +4,16 @@ class Solution:
         cols = [set() for _ in range(9)]
         boxes = defaultdict(set)
 
-        for r in range(9):
-            for c in range(9):
-                num = board[r][c]
+        for row in range(9):
+            for col in range(9):
+                num = board[row][col]
                 if num == ".":
                     continue
-                if (num in rows[r] or
-                    num in cols[c] or
-                    num in boxes[(r//3, c//3)]):
+                if (num in rows[row] or
+                    num in cols[col] or
+                    num in boxes[(row//3, col//3)]):
                     return False
-                rows[r].add(num)
-                cols[c].add(num)
-                boxes[(r//3, c//3)].add(num)
+                rows[row].add(num)
+                cols[col].add(num)
+                boxes[(row//3, col//3)].add(num)
         return True
