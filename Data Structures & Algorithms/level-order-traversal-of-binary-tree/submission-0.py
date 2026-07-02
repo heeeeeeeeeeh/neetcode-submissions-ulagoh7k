@@ -11,7 +11,7 @@ class Solution:
             if not root:
                 return
 
-            if len(res) - 1 < depth:
+            if len(res) == depth:
                 res.append([])
             res[depth].append(root.val)
             dfs(root.left, depth + 1)
