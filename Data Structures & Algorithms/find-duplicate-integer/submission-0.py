@@ -4,12 +4,10 @@ class Solution:
         while True:
             slow = nums[slow]
             fast = nums[nums[fast]]
-
             if slow == fast:
                 break
-        
-        res = 0
-        while res != slow:
-            res = nums[res]
+        left = 0
+        while left != slow:
+            left = nums[left]
             slow = nums[slow]
-        return res
+        return left
