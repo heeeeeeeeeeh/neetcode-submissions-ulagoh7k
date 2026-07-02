@@ -8,10 +8,10 @@
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         def dfs(root, depth):
-            nonlocal res
             if not root:
-                return None
-            if len(res) == depth:
+                return
+
+            if len(res) - 1 < depth:
                 res.append([])
             res[depth].append(root.val)
             dfs(root.left, depth + 1)
