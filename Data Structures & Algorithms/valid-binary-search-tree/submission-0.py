@@ -9,7 +9,7 @@ class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         def dfs(left, root, right):
             if not root:
-                return True
+                return  True
             
             if left < root.val < right:
                 return (dfs(left, root.left, root.val) and
