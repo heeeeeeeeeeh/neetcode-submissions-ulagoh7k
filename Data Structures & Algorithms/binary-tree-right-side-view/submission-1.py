@@ -10,7 +10,7 @@ class Solution:
         def dfs(root, depth):
             if not root:
                 return
-            nonlocal res
+            
             if len(res) == depth:
                 res.append(root.val)
             dfs(root.right, depth + 1)
