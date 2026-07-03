@@ -18,13 +18,13 @@ class Solution:
                 prev = cur.left
                 while prev.right and prev.right != cur:
                     prev = prev.right
-                
-                if not prev.right:
-                    prev.right = cur
-                    cur = cur.left
-                else:
+                if prev.right:
                     k -= 1
+                    prev.right = None
                     if k == 0:
                         return cur.val
                     cur = cur.right
+                else:
+                    prev.right = cur
+                    cur = cur.left
         return -1
