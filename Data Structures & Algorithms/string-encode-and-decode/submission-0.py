@@ -7,8 +7,8 @@ class Solution:
         return res
 
     def decode(self, s: str) -> List[str]:
-        i = j = 0
         res = []
+        i = j = 0
         while j < len(s):
             while s[j] != "#":
                 j += 1
