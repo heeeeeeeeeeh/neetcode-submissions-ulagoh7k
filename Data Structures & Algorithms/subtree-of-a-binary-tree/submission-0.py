@@ -7,11 +7,10 @@
 
 class Solution:   
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
-        rootS = self.serialize(root)
-        subS = self.serialize(subRoot)
+        rootS, subS = self.serialize(root), self.serialize(subRoot)
         combined = subS + "|" + rootS
-        z = self.z_function(combined)
-        for i in range(len(subS)+ 1, len(combined)):
+        z = self.zfunction(combined)
+        for i in range(len(subS) + 1, len(combined)):
             if z[i] == len(subS):
                 return True
         return False
@@ -19,18 +18,19 @@ class Solution:
     def serialize(self, root):
         if not root:
             return "#"
-        return (str(root.val) + 
-                self.serialize(root.left) +
-                self.serialize(root.right))
+        return ( str(root.val)
+                + self.serialize(root.left)
+                + self.serialize(root.right))
     
-    def z_function(self, s):
-        l = r = 0
+    def zfunction(self, s):
         z = [0]*len(s)
+        l = r = 0
         for i in range(1, len(s)):
             if i <= r:
-                z[i] = min(z[i-l], r-i+1)
+                z[i] = max(z[i-i], r-i+1)
             while i + z[i] < len(s) and s[z[i]] == s[i + z[i]]:
                 z[i] += 1
             if i + z[i] - 1 > r:
-                l, r = i, i + z[i]-1
+                l = i
+                r = i + z[i] - 1
         return z
