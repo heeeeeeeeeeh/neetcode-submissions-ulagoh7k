@@ -14,4 +14,4 @@ class Solution:
                 stack.append(int(stack.pop() / b))
             else:
                 stack.append(int(c))
-        return stack[-1]
+        return stack[0]
