@@ -13,7 +13,6 @@ class Solution:
             
             left = dfs(root.left)
             right = dfs(root.right)
-            bal = abs(left[1] - right[1]) < 2
-            return [bal and left[0] and right[0],
-                    1 + max(left[1], right[1])]
+            isBal = abs(left[1] - right[1]) < 2 and left[0] and right[0]
+            return [isBal, 1 + max(left[1], right[1])]
         return dfs(root)[0]
