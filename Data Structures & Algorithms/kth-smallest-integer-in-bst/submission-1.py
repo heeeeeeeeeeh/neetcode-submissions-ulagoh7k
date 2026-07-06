@@ -18,9 +18,10 @@ class Solution:
                 prev = cur.left
                 while prev.right and prev.right != cur:
                     prev = prev.right
+                
                 if prev.right:
-                    k -= 1
                     prev.right = None
+                    k -= 1
                     if k == 0:
                         return cur.val
                     cur = cur.right
