@@ -7,15 +7,14 @@
 
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        res = []
         def dfs(root, depth):
             if not root:
                 return
-
             if len(res) == depth:
                 res.append([])
             res[depth].append(root.val)
             dfs(root.left, depth + 1)
             dfs(root.right, depth + 1)
-        res = []
         dfs(root, 0)
         return res
