@@ -6,5 +6,5 @@ class Solution:
             if s[r] in seen:
                 l = max(l, seen[s[r]] + 1)
             seen[s[r]] = r
-            maxL = max(maxL, (r-l)+1)
+            maxL = max(maxL, r-l+1)
         return maxL
