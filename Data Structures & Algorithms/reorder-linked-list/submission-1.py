@@ -8,9 +8,8 @@ class Solution:
     def reorderList(self, head: Optional[ListNode]) -> None:
         slow, fast = head, head.next
         while fast and fast.next:
-            slow = slow.next
             fast = fast.next.next
-        
+            slow = slow.next
         second = slow.next
         prev = slow.next = None
         while second:
@@ -24,4 +23,3 @@ class Solution:
             first.next = second
             second.next = tmp1
             first, second = tmp1, tmp2
-
