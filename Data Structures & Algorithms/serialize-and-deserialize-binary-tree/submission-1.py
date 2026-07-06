@@ -24,9 +24,9 @@ class Codec:
             if vals[i] == "#":
                 i += 1
                 return None
-            node = TreeNode(vals[i])
+            root = TreeNode(vals[i])
             i += 1
-            node.left = dfs()
-            node.right = dfs()
-            return node
+            root.left = dfs()
+            root.right = dfs()
+            return root
         return dfs()
