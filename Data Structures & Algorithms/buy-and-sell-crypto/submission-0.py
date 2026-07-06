@@ -3,9 +3,9 @@ class Solution:
         b, s = 0, 1
         maxP = 0
         while s < len(prices):
-            if prices[b] > prices[s]:
-                b = s
+            if prices[b] < prices[s]:
+                maxP = max(maxP, prices[s] - prices[b])
             else:
-                maxP = max(maxP, prices[s]-prices[b])
+                b=s
             s += 1
         return maxP
