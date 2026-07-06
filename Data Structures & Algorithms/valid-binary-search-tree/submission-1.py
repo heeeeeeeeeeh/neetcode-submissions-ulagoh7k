@@ -12,7 +12,7 @@ class Solution:
                 return True
             
             if left < root.val < right:
-                return (dfs(left, root.left, root.val) and
-                        dfs(root.val, root.right, right))
+                return (dfs(left, root.left, root.val)
+                        and dfs(root.val, root.right, right))
             return False
         return dfs(float("-inf"), root, float("inf"))
