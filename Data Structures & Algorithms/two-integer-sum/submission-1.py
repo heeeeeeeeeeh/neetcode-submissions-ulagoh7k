@@ -6,4 +6,5 @@ class Solution:
             if diff in diffs:
                 return [diffs[diff], i]
             diffs[num] = i
-        return -1
+
+        
